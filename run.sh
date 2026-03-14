@@ -125,16 +125,12 @@ done
 
 echo "compiling main and media files..."
 
-gcc -c -o anny_board_main.o main.c
-gcc -c -o anny_board_media.o media.c
-g++ -c -o latex.o latex.cpp
-g++ -o anny_board.out anny_board_main.o anny_board_media.o latex.o  \
+gcc -o anny_board.out main.c media.c \
      $XML_CFLAGS \
     `sdl2-config --cflags --libs` \
     -lSDL2_ttf -lSDL2_image \
     -lcurl -ldl -lm \
     -lavformat -lavcodec -lavutil -lswscale -lswresample -lxml2
-
 
 echo "running board..."
 
